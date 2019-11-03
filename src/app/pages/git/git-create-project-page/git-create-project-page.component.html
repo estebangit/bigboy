@@ -1,0 +1,22 @@
+<div class="login-page" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="50px">
+
+    <mat-card fxFlexAlign="center">
+        <mat-card-title>
+            Create a new Git project
+        </mat-card-title>
+        <mat-card-content>
+            <form (keyup.enter)="onSubmit(name)">
+                <mat-form-field class="login-field">
+                    <input matInput placeholder="Project name" name="name" [(ngModel)]="name" type="name" autocomplete="project name"/>
+                </mat-form-field>
+            </form>
+            <mat-error [textContent]="errorMessage"></mat-error>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="onSubmit(name)" type="submit">
+                Create
+            </button>
+        </mat-card-actions>
+    </mat-card>
+
+</div>
