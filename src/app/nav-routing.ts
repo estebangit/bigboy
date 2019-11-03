@@ -26,7 +26,7 @@ export const navRoutes: NavRoute[] = [
         pathMatch: 'full',
     },
     {
-        data: { title: 'CicdCreateProject' },
+        data: { title: 'Create new project' },
         icon: 'rowing',
         group: 'cicd',
         path: 'cicd-create-project',
@@ -34,6 +34,15 @@ export const navRoutes: NavRoute[] = [
             import(
                 './pages/cicd/cicd-create-project-page/cicd-create-project-page.module'
             ).then(m => m.CicdCreateProjectPageModule),
+    },
+    {
+        data: {title: 'Create new job'},
+        icon: 'rowing',
+        group: 'cicd',
+        path: 'cicd-create-job',loadChildren: () =>
+                import('./pages/cicd/cicd-create-job-page/cicd-create-job-page.module').then(
+                    m => m.CicdCreateJobPageModule,
+                ),
     },
     {
         data: { title: 'Create new project' },
