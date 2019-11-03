@@ -36,13 +36,14 @@ export const navRoutes: NavRoute[] = [
             ).then(m => m.CicdCreateProjectPageModule),
     },
     {
-        data: {title: 'Create new job'},
+        data: { title: 'Create new job' },
         icon: 'rowing',
         group: 'cicd',
-        path: 'cicd-create-job',loadChildren: () =>
-                import('./pages/cicd/cicd-create-job-page/cicd-create-job-page.module').then(
-                    m => m.CicdCreateJobPageModule,
-                ),
+        path: 'cicd-create-job',
+        loadChildren: () =>
+            import(
+                './pages/cicd/cicd-create-job-page/cicd-create-job-page.module'
+            ).then(m => m.CicdCreateJobPageModule),
     },
     {
         data: { title: 'Create new project' },
