@@ -14,7 +14,7 @@ export class JiraCreateProjectPageComponent implements OnInit, AfterViewInit {
     public displayedColumns = ['name', 'dateOfBirth', 'email', 'id'];
     public dataSource = new MatTableDataSource<Owner>();
 
-    @ViewChild(MatSort, {static: false}) sort: MatSort;
+    @ViewChild(MatSort, {static: true}) sort: MatSort;
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
     constructor(private sampleService: SampleService) {}
@@ -24,8 +24,8 @@ export class JiraCreateProjectPageComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
     }
 
 }
