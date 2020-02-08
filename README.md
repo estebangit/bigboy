@@ -146,3 +146,20 @@ variables.scss
 ```
 ![Blue Login Page](docs/images/login-blue.png)
 ![Blue Sidenav Page](docs/images/sidenav-blue.png)
+
+
+Upgrade to angular9
+https://update.angular.io/#8.2:9.0
+
+```
+ng update @angular/core@8 @angular/cli@8
+ng update @angular/core @angular/cli
+ng update @angular/material --force
+ng update rxjs
+npm outdated
+npm outdated -g --depth=0
+npm update -g @angular/cli
+npm update
+ng update @angular/flex-layout
+npm update
+```
