@@ -1,5 +1,7 @@
 import {Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
-import {MatTable, MatTableDataSource, MatSort, MatPaginator} from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 
 import {SampleService} from '../../../sample/sample.service';
 import {Owner} from '../../../sample/owner.model';
