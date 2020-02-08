@@ -1,12 +1,24 @@
-<mat-toolbar color="primary" class="mat-elevation-z6" fxLayout fxLayoutGap="16px">
+<mat-toolbar color="primary" class="mat-elevation-z6">
+
     <button mat-icon-button (click)="onToggleSideNav()">
         <mat-icon>menu</mat-icon>
     </button>
+
     <a mat-icon-button [routerLink]="previousUrl" *ngIf="activePage?.isChild">
         <mat-icon>arrow_back</mat-icon>
     </a>
-    <div fxFlex="100%">BigBoy - {{activePage?.title}}</div>
-    <button mat-icon-button (click)="onLogout()">
-        <mat-icon>logout</mat-icon>
-    </button>
+
+    <div>BigBoy - {{activePage?.title}}</div>
+
+    <span class="fill-space"></span>
+
+    <div>
+        <button mat-icon-button (click)="onInfo()">
+            <mat-icon>info</mat-icon>
+        </button>
+        <button mat-icon-button (click)="onLogout()">
+            <mat-icon>exit_to_app</mat-icon>
+        </button>
+    </div>
+
 </mat-toolbar>

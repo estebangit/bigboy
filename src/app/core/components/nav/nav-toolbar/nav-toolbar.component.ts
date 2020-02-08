@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { Page } from '../../../services/navigation/navigation.service';
 
 @Component({
@@ -12,7 +14,7 @@ export class NavToolbarComponent implements OnInit {
     @Output() toggleSideNav = new EventEmitter();
     @Output() logout = new EventEmitter();
 
-    constructor() {}
+    constructor(private snackBar: MatSnackBar) {}
 
     ngOnInit() {}
 
@@ -22,5 +24,9 @@ export class NavToolbarComponent implements OnInit {
 
     public onLogout() {
         this.logout.emit();
+    }
+
+    public onInfo() {
+        this.snackBar.open('BigBoy V1.0', '', { duration: 5000 });
     }
 }
