@@ -10,11 +10,11 @@
 
         <mat-card-content>
 
-            <form (keyup.enter)="login(email, password)">
+            <form (keyup.enter)="login(username, password)">
 
                 <mat-form-field class="login-field">
                     <input matInput
-                           placeholder="Email" name="email" [(ngModel)]="email" type="email"
+                           placeholder="Username" name="username" [(ngModel)]="username" type="email"
                            autocomplete="username email"/>
                 </mat-form-field>
 
@@ -32,7 +32,7 @@
 
         <mat-card-actions>
             <button mat-raised-button color="primary"
-                    class="login-field" (click)="login(email, password)" type="submit">
+                    class="login-field" (click)="login(username, password)" type="submit">
                 Login
             </button>
         </mat-card-actions>

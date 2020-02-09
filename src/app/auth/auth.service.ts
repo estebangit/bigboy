@@ -21,9 +21,9 @@ export class AuthService extends CrudService {
         this.token = this.storage.read(AUTH_TOKEN) || '';
     }
 
-    public async login(email: string, password: string) {
+    public async login(username: string, password: string) {
         try {
-            this.token = await this.post({ email, password });
+            this.token = await this.post({ username, password });
             this.storage.save(AUTH_TOKEN, this.token);
             return this.redirectUrl;
         } catch (error) {
@@ -32,11 +32,11 @@ export class AuthService extends CrudService {
         }
     }
 
-    public async mockLogin(email: string, password: string) {
+    public async mockLogin(username: string, password: string) {
         try {
-            if (!(email === 'user' && password === 'user')) {
+            if (!(username === 'user' && password === 'user')) {
                 throw new Error(
-                    'When using mockLogin, login with credentials: \nemail: user\npassword:user',
+                    'When using mockLogin, login with credentials: \nusername: user\npassword:user',
                 );
             }
             this.token = 'user';
