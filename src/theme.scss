@@ -19,8 +19,12 @@
     );
 };
 
-$my-app-foreground: my-mat-light-theme-foreground($main-font-color);
+$bigboy-foreground: my-mat-light-theme-foreground($main-font-color);
 
-$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
-$my-app-theme-with-foreground: map-merge($my-app-theme, (foreground: $my-app-foreground));
-@include angular-material-theme($my-app-theme-with-foreground);
+$bigboy-theme: mat-light-theme($bigboy-primary, $bigboy-accent, $bigboy-warn);
+$bigboy-dark-theme: mat-dark-theme($bigboy-dark-primary, $bigboy-dark-accent, $bigboy-dark-warn);
+
+$bigboy-theme-with-foreground: map-merge($bigboy-theme, (foreground: $bigboy-foreground));
+
+//@include angular-material-theme($bigboy-theme-with-foreground);
+@include angular-material-theme($bigboy-dark-theme);
