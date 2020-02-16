@@ -19,12 +19,18 @@
     );
 };
 
+// Default theme
 $bigboy-foreground: my-mat-light-theme-foreground($main-font-color);
-
-$bigboy-theme: mat-light-theme($bigboy-primary, $bigboy-accent, $bigboy-warn);
-$bigboy-dark-theme: mat-dark-theme($bigboy-dark-primary, $bigboy-dark-accent, $bigboy-dark-warn);
-
+$bigboy-light-theme: mat-light-theme($bigboy-primary, $bigboy-accent, $bigboy-warn);
 $bigboy-theme-with-foreground: map-merge($bigboy-theme, (foreground: $bigboy-foreground));
 
-//@include angular-material-theme($bigboy-theme-with-foreground);
-@include angular-material-theme($bigboy-dark-theme);
+// Dark theme
+$bigboy-dark-theme: mat-dark-theme($bigboy-dark-primary, $bigboy-dark-accent, $bigboy-dark-warn);
+
+
+$bigboy-theme: $bigboy-theme-with-foreground;
+@if $use-dark_theme {
+    $bigboy-theme: $bigboy-dark-theme;
+}
+
+@include angular-material-theme($bigboy-theme);

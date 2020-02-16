@@ -5,6 +5,8 @@
 
 $main-font-color: black;
 
+$use-dark-theme: true !default;
+
 // Define the default theme
 //$my-app-primary: mat-palette($mat-red);
 //$my-app-primary: mat-palette($mat-blue);
@@ -15,16 +17,19 @@ $bigboy-warn:    mat-palette($mat-red);
 
 // Define an alternate dark theme.
 $bigboy-dark-primary: mat-palette($mat-grey, 700, 300, 900);
-$bigboy-dark-accent: mat-palette($mat-blue-grey, 400);
+//$bigboy-dark-accent: mat-palette($mat-blue-grey, 400);
 $bigboy-dark-warn: mat-palette($mat-red, 500);
 //$my-app-primary: mat-palette($mat-blue-grey);
-//$my-app-accent:  mat-palette($mat-amber, A200, A100, A400);
+$bigboy-dark-accent:  mat-palette($mat-amber, A200, A100, A400);
 //$my-app-warn:    mat-palette($mat-deep-orange);
 
 $bigboy-theme:   mat-light-theme($bigboy-primary, $bigboy-accent, $bigboy-warn);
 $bigboy-dark-theme:   mat-dark-theme($bigboy-dark-primary, $bigboy-dark-accent, $bigboy-dark-warn);
 
-//$primaryColor: map-get($bigboy-primary, 500);
-$primaryColor: map-get($bigboy-dark-primary, 500);
+$primaryColor: map-get($bigboy-primary, 500);
+@if $use-dark_theme {
+    $primaryColor: map-get($bigboy-dark-primary, 500);
+}
+
 
 
