@@ -5,16 +5,20 @@ import { FormsModule } from '@angular/forms';
 
 import { GitCreateProjectPageRoutingModule } from './git-create-project-page-routing.module';
 import { GitCreateProjectPageComponent } from './git-create-project-page.component';
+import { GitCreateProjectPageComponentDialog } from './git-create-project-page.component';
 import { MaterialModule } from '../../../material.module';
 
 @NgModule({
-    declarations: [GitCreateProjectPageComponent],
+    declarations: [
+        GitCreateProjectPageComponent,
+        GitCreateProjectPageComponentDialog
+    ],
     imports: [
         CommonModule,
         MaterialModule,
         GitCreateProjectPageRoutingModule,
         FlexLayoutModule,
-        FormsModule,
+        FormsModule
     ],
 })
 export class GitCreateProjectPageModule {}

@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+
+export interface DialogData {
+  name: string;
+  status: string;
+}
 
 @Component({
     selector: 'app-git-create-project-page',
@@ -10,7 +16,7 @@ export class GitCreateProjectPageComponent implements OnInit {
     name: string;
     errorMessage: string;
 
-    constructor(private snackBar: MatSnackBar) {}
+    constructor(private snackBar: MatSnackBar, public dialog: MatDialog) {}
 
     ngOnInit() {
         this.errorMessage = '';
@@ -24,5 +30,20 @@ export class GitCreateProjectPageComponent implements OnInit {
             this.errorMessage = 'Wrong Credentials!';
             console.error('Unable to Login!\n', e);
         }
+
+        this.dialog.open(GitCreateProjectPageComponentDialog, {
+              data: {
+                name: name,
+                status: 'Project created.'
+              }
+            });
     }
+}
+
+@Component({
+  selector: 'app-git-create-project-page-dialog',
+  templateUrl: './git-create-project-page.component-dialog.html',
+})
+export class GitCreateProjectPageComponentDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 }
