@@ -37,9 +37,9 @@ describe('AuthGuard', () => {
                 AuthGuard,
             ],
         });
-        guard = TestBed.get(AuthGuard);
-        service = TestBed.get(AuthService);
-        router = TestBed.get(Router);
+        guard = TestBed.inject(AuthGuard);
+        service = TestBed.inject(AuthService);
+        router = TestBed.inject(Router);
     }));
 
     it('should be created', () => {

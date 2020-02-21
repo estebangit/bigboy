@@ -8,6 +8,14 @@ export interface DialogData {
 }
 
 @Component({
+  selector: 'app-git-create-project-page-dialog',
+  templateUrl: './git-create-project-page-dialog.component.html',
+})
+export class GitCreateProjectPageDialogComponent {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+}
+
+@Component({
     selector: 'app-git-create-project-page',
     templateUrl: './git-create-project-page.component.html',
     styleUrls: ['./git-create-project-page.component.scss'],
@@ -31,19 +39,11 @@ export class GitCreateProjectPageComponent implements OnInit {
             console.error('Unable to Login!\n', e);
         }
 
-        this.dialog.open(GitCreateProjectPageComponentDialog, {
+        this.dialog.open(GitCreateProjectPageDialogComponent, {
               data: {
-                name: name,
+                name,
                 status: 'Project created.'
               }
             });
     }
-}
-
-@Component({
-  selector: 'app-git-create-project-page-dialog',
-  templateUrl: './git-create-project-page.component-dialog.html',
-})
-export class GitCreateProjectPageComponentDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 }

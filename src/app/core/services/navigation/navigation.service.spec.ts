@@ -26,7 +26,7 @@ describe('NavigationService', () => {
                 },
             ],
         });
-        service = TestBed.get(NavigationService);
+        service = TestBed.inject(NavigationService);
     }));
 
     it('should be created', () => {

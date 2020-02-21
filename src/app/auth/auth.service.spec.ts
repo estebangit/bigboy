@@ -30,8 +30,8 @@ describe('AuthService', () => {
                 AuthService,
             ],
         });
-        authService = TestBed.get(AuthService);
-        storageService = TestBed.get(StorageService);
+        authService = TestBed.inject(AuthService);
+        storageService = TestBed.inject(StorageService);
     }));
 
     it('should be created', () => {
