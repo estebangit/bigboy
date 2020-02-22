@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Owner} from './owner.model';
+import {ProjectStatus} from './projectstatus.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,21 @@ export class SampleService {
         {id: '014', name: 'tztz', email: 'tztz@pipo.org', dateOfBirth: '14/04/1984'},
         {id: '015', name: 'tztz', email: 'tztz@pipo.org', dateOfBirth: '15/05/1985'}
     ];
+  }
+
+  public getProjectsStatus(): ProjectStatus[] {
+    const status: ProjectStatus[] = new Array(10);
+
+    for(let i = 0; i < 10; i++) {
+        const b: number = this.getRndInteger(0, 9);
+        status[i] = {id: '0' + i, name: 'toto' + i, step1: 'ok', step2: 'nok' + b, step3: 'nok' + b};
+    }
+
+    return status;
+  }
+
+  private getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
   }
 
 }

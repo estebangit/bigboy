@@ -33,7 +33,7 @@ export class GitCreateProjectPageComponent implements OnInit {
     public onSubmit(name: string) {
         try {
             console.warn('Project to save: ' + name);
-            this.snackBar.open('Project saved', '', { duration: 2000 });
+            // this.snackBar.open('Project saved', '', { duration: 2000 });
         } catch (e) {
             this.errorMessage = 'Wrong Credentials!';
             console.error('Unable to Login!\n', e);
