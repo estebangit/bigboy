@@ -12,6 +12,11 @@ of perks to help you kickstart your Angular project in a matter of minutes!
 Angular CLI Version: 8.0.1 \
 Angular Material Version: 8.0.0
 
+Install moments
+```bash
+npm install angular-moment moment --save
+```
+
 ## Perks
  - **Navigation Flow and guarded access for Pages**
  - **Script to generate root/sidenav page**

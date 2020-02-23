@@ -32,7 +32,7 @@ export class SampleService {
   public getProjectsStatus(): ProjectStatus[] {
     const status: ProjectStatus[] = new Array(10);
 
-    for(let i = 0; i < 10; i++) {
+    for(let i = 0; i < 50; i++) {
         const b: number = this.getRndInteger(0, 9);
         status[i] = {id: '0' + i, name: 'toto' + i, step1: 'ok', step2: 'nok' + b, step3: 'nok' + b};
     }
