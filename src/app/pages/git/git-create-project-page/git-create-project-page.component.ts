@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+
+import { Router } from '@angular/router';
 
 export interface DialogData {
   name: string;
@@ -12,7 +14,17 @@ export interface DialogData {
   templateUrl: './git-create-project-page-dialog.component.html',
 })
 export class GitCreateProjectPageDialogComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    constructor(
+        private dialogRef: MatDialogRef<GitCreateProjectPageDialogComponent>,
+        private router: Router,
+        @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    }
+
+    public viewStatus() {
+        this.router.navigate(['nav/cicd-create-project']);
+        this.dialogRef.close();
+    }
+
 }
 
 @Component({
@@ -33,7 +45,6 @@ export class GitCreateProjectPageComponent implements OnInit {
     public onSubmit(name: string) {
         try {
             console.warn('Project to save: ' + name);
-            // this.snackBar.open('Project saved', '', { duration: 2000 });
         } catch (e) {
             this.errorMessage = 'Wrong Credentials!';
             console.error('Unable to Login!\n', e);
@@ -46,4 +57,5 @@ export class GitCreateProjectPageComponent implements OnInit {
               }
             });
     }
+
 }
