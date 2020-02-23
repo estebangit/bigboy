@@ -24,17 +24,44 @@
 
     <ng-container matColumnDef="step1">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Step 1 </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.step1}} </mat-cell>
+        <mat-cell *matCellDef="let element">
+            <mat-icon class="item-icon">
+                <ng-template [ngIf]="element.step1" [ngIfElse]="step1nok">
+                    done
+                </ng-template>
+                <ng-template #step1nok>
+                    close
+                </ng-template>
+            </mat-icon>
+        </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="step2">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Step 2 </mat-header-cell>
-        <mat-cell *matCellDef="let element"> <mat-icon class="item-icon">close</mat-icon> {{element.step2}} </mat-cell>
+        <mat-cell *matCellDef="let element">
+            <mat-icon class="item-icon">
+                <ng-template [ngIf]="element.step2" [ngIfElse]="step2nok">
+                    done
+                </ng-template>
+                <ng-template #step2nok>
+                    close
+                </ng-template>
+            </mat-icon>
+        </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="step3">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Step 3 </mat-header-cell>
-        <mat-cell *matCellDef="let element"> <mat-icon class="item-icon">done</mat-icon> {{element.step3}} </mat-cell>
+        <mat-cell *matCellDef="let element">
+            <mat-icon class="item-icon">
+                <ng-template [ngIf]="element.step3" [ngIfElse]="step3nok">
+                    done
+                </ng-template>
+                <ng-template #step3nok>
+                    close
+                </ng-template>
+            </mat-icon>
+        </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>

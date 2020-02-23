@@ -33,8 +33,13 @@ export class SampleService {
     const status: ProjectStatus[] = new Array(10);
 
     for(let i = 0; i < 50; i++) {
-        const b: number = this.getRndInteger(0, 9);
-        status[i] = {id: '0' + i, name: 'toto' + i, step1: 'ok', step2: 'nok' + b, step3: 'nok' + b};
+        let b: number = this.getRndInteger(0, 9);
+        const step1: boolean = b > 5;
+        b = this.getRndInteger(0, 9);
+        const step2: boolean = b > 5;
+        b = this.getRndInteger(0, 9);
+        const step3: boolean = b > 5;
+        status[i] = {id: '0' + i, name: 'toto' + i, step1, step2, step3};
     }
 
     return status;
