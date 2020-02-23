@@ -1,7 +1,7 @@
 
 <div class="row" style="margin-bottom: 12px;">
     <div class="col-md-12" style="text-align: center;">
-        This page will refresh in <div class="time">{{minutes}}</div> Min <div class="time">{{seconds}}</div> Sec
+        This page will refresh in <div class="time">{{minutes}}</div>min <div class="time">{{seconds}}</div>sec.
     </div>
 </div>
 
@@ -19,7 +19,12 @@
 
     <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        <mat-cell *matCellDef="let element">
+            {{element.name}}
+            <ng-template [ngIf]="element.step1 && element.step2 && element.step3">
+                <span> &nbsp; &#10003;</span>
+            </ng-template>
+        </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="step1">
